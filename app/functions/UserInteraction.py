@@ -18,4 +18,5 @@ def input_game_time(word_length):
     game_time = int(input("Wybierz przez ile rund ma toczyć sie gra: "))
     while game_time < word_length:
         print("Rund musi być co najmniej tyle ile wynosi długość słowa! Spróbuj jeszcze raz!")
+        game_time = int(input("Wybierz przez ile rund ma toczyć sie gra: "))
     return game_time
