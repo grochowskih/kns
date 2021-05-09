@@ -33,6 +33,9 @@ class Gameplay:
     def get_real_player(self):
         return self.real_player
 
+    def set_current_round(self):
+        self.current_round = self.current_round + 1
+
     def add_letter(self, letter):
         self.set_word(self.word+letter)
         self.update_word()
@@ -41,17 +44,17 @@ class Gameplay:
         if is_repetition(self.word):
             print("Wystąpiła repetycja!")
             begin = begin_repetition(self.word)
-            self.set_word(self.word[0:begin-1])
+            self.set_word(self.word[0:begin])
 
     def check_end_game(self):
         if len(self.word) >= self.word_length:
-            print("Koniec gry, wygral gracz komputerowy!")
+            print("Koniec gry, wygrał gracz komputerowy!")
             return True
         elif self.current_round > self.game_time:
             print("Wygrał gracz rzeczywisty, brawo!")
             return True
         else:
-            print("Nie ma zwyciezcy, gra toczy sie dalej.")
+            print("Nie ma zwycięzcy, gra toczy się dalej.")
             return False
         return False
 
