@@ -27,7 +27,7 @@ if __name__ == "__main__":
     except:
         print("Poważny błąd przy wprowadzaniu danych. Losuję długość słowa.")
         word_length = random.randint(2,100)
-    print("Wybrano słowo o długości ", word_length, " liter.")
+    print("Rozgrywka zakończy się po stworzeniu słowa długości", word_length, "liter.")
 
 
     try:
@@ -35,31 +35,28 @@ if __name__ == "__main__":
     except:
         print("Poważny błąd przy wprowadzaniu danych. Losuję długość słowa.")
         game_time = random.randint(word_length, 100)
-    print("Wybrano ", game_time, " rund.")
+    print("Rozgrywka potrwa", game_time, "rund.")
 
     real_player = RealPlayer()
 
     gameplay = Gameplay(real_player, alphabet_length, alphabet,  word_length, game_time, type)
 
     while True:
-        print("Obecnie słowo to: ")
-        print(Fore.RED + gameplay.get_word())
-        print(Style.RESET_ALL)
-        print("Ruch gracza rzeczywistego. Połóż literę do słowa")
-        letter = gameplay.get_real_player().choose_letter(alphabet)
-        gameplay.add_letter(letter)
+        computer_letter = gameplay.get_computer_player().choose_letter(gameplay)
+        print("Ruch gracza komputerowego. Komputer kladzie literę " + computer_letter)
+        gameplay.add_letter(computer_letter)
         print("Obecnie słowo to: ")
         print(Fore.RED + gameplay.get_word())
         print(Style.RESET_ALL)
         if gameplay.check_end_game():
             break
-        print("Ruch gracza komputerowego.")
-        computer_letter = gameplay.get_computer_player().choose_letter(gameplay)
-        print("Komputer kladzie literę " + computer_letter)
-        gameplay.add_letter(computer_letter)
+        print("Twój ruch. Dopisz literę do słowa: ")
+        letter = gameplay.get_real_player().choose_letter(alphabet)
+        gameplay.add_letter(letter)
         print("Obecnie słowo to: ")
         print(Fore.RED + gameplay.get_word())
         print(Style.RESET_ALL)
+        gameplay.set_current_round()
         if gameplay.check_end_game():
             break
 
