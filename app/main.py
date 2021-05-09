@@ -1,3 +1,8 @@
+from classes.gameplay.Gameplay import Gameplay
+from classes.real.RealPlayer import RealPlayer
+from functions.UserInteraction import input_alphabet_length
+from colorama import Fore, Back, Style
+
 computer_players = {"1": "Losowy", "2": "Wykluczający", "3": "Przewidujący"}
 
 if __name__ == "__main__":
@@ -8,8 +13,11 @@ if __name__ == "__main__":
         type = input("Jeśli chcesz zmierzyć się z graczem losowym - wybierz 1. Jeśli chcesz zmierzyć się z graczem wykluczajacym - wybierz 2. Jeśli chcesz zmierzyć się z graczem przewidującym - wybierz 3.")
     print("Wybrałeś gracza komputerowego rodzaju: " + computer_players[type])
 
-    alphabet_length = int(input("Wybierz długość alfabetu, na jakim ma rozgrywać się rozgrywka: "))
-    #dolozyc obsluge wyjatku i wgl moze ladniej
+    try:
+        alphabet_length = input_alphabet_length()
+    except:
+        print("Błędne dane. Ustawiam długość na 10.")
+        alphabet_length = 10
     alphabet = [chr(i) for i in range(97, 97+alphabet_length)]
 
     print("Wybrany przez Ciebie alfabet to: " + str(alphabet))
@@ -22,20 +30,24 @@ if __name__ == "__main__":
     gameplay = Gameplay(real_player, alphabet_length, alphabet,  word_length, game_time, type)
 
     while True:
-        print("Obecnie słowo to: " + gameplay.get_word())
+        print("Obecnie słowo to: ")
+        print(Fore.RED + gameplay.get_word())
+        print(Style.RESET_ALL)
         print("Ruch gracza rzeczywistego. Połóż literę do słowa")
-        letter = input("Podaj literę: ")
-        while letter not in alphabet:
-            letter = input("Litera nie z alfabetu. Podaj literę: ")
+        letter = gameplay.get_real_player().choose_letter(alphabet)
         gameplay.add_letter(letter)
-        print("Obecnie słowo to: " + gameplay.get_word())
+        print("Obecnie słowo to: ")
+        print(Fore.RED + gameplay.get_word())
+        print(Style.RESET_ALL)
         if gameplay.check_end_game():
             break
         print("Ruch gracza komputerowego.")
         computer_letter = gameplay.get_computer_player().choose_letter(gameplay)
         print("Komputer kladzie literę " + computer_letter)
         gameplay.add_letter(computer_letter)
-        print("Obecnie słowo to: " + gameplay.get_word())
+        print("Obecnie słowo to: ")
+        print(Fore.RED + gameplay.get_word())
+        print(Style.RESET_ALL)
         if gameplay.check_end_game():
             break
 

@@ -30,11 +30,16 @@ class Gameplay:
     def get_computer_player(self):
         return self.computer_player
 
+    def get_real_player(self):
+        return self.real_player
+
     def add_letter(self, letter):
         self.set_word(self.word+letter)
+        self.update_word()
 
     def update_word(self):
         if is_repetition(self.word):
+            print("Wystąpiła repetycja!")
             begin = begin_repetition(self.word)
             self.set_word(self.word[0:begin-1])
 
@@ -49,5 +54,7 @@ class Gameplay:
             print("Nie ma zwyciezcy, gra toczy sie dalej.")
             return False
         return False
+
+
 
 

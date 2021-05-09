@@ -1,4 +1,4 @@
-from app.functions.MathFunctions import is_repetition, begin_repetition
+from functions.MathFunctions import is_repetition, begin_repetition
 import random
 
 
