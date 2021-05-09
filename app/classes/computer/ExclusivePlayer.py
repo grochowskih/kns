@@ -1,4 +1,4 @@
-from app.classes.computer.ComputerPlayer import ComputerPlayer
+from classes.computer.ComputerPlayer import ComputerPlayer
 
 
 class ExclusivePlayer(ComputerPlayer):
