@@ -17,7 +17,7 @@ class ComputerPlayer:
         :param collection: dowolny zbiór
         :return: element ze zbioru wybrany losowo
         """
-        return random.choice(collection)
+        return random.choice(tuple(collection))
 
     @staticmethod
     def add_non_repetitive(alphabet, word, collection):
