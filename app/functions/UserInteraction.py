@@ -2,7 +2,7 @@ import math
 
 def input_alphabet_length():
     alphabet_length = int(input("Wybierz liczbę liter w alfabecie dostępnym podczas rozgrywki: "))
-    while alphabet_length < 1 and alphabet_length > 26:
+    while alphabet_length < 1 or alphabet_length > 26:
             print("Długość alfabetu musi być liczbą z przedziału [2,26]! Spróbuj jeszcze raz!")
             alphabet_length = int(input("Wybierz długość alfabetu, na jakim ma rozgrywać się rozgrywka: "))
     return alphabet_length
