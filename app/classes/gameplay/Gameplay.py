@@ -37,16 +37,29 @@ class Gameplay:
         self.current_round = self.current_round + 1
 
     def add_letter(self, letter):
+        """
+
+        :param letter: litera do dodania
+        :return: empty, ale dodaje litere do slowa i update'uje jesli wystąpiła repetycja
+        """
         self.set_word(self.word+letter)
         self.update_word()
 
     def update_word(self):
+        """
+
+        :return: empty, ale jesli wystapila repetycja, to update'uje slowo
+        """
         if is_repetition(self.word):
             print("Wystąpiła repetycja!")
             begin = begin_repetition(self.word)
             self.set_word(self.word[0:begin])
 
     def check_end_game(self):
+        """
+
+        :return: True if gra sie konczy else wpp
+        """
         if len(self.word) >= self.word_length:
             print("Koniec gry, wygrał gracz komputerowy!")
             return True
