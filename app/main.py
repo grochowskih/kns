@@ -8,7 +8,7 @@ computer_players = {"1": "Losowy", "2": "Wykluczający", "3": "Przewidujący"}
 
 if __name__ == "__main__":
     run = "1"
-    while run == 1:
+    while run == "1":
         print("Witamy w grze Thuego. Wybierz rodzaj gracza komputerowego, z jakim się zmierzysz.")
         type = input("Jeśli chcesz zmierzyć się z graczem losowym - wybierz 1. Jeśli chcesz zmierzyć się z graczem wykluczajacym - wybierz 2. Jeśli chcesz zmierzyć się z graczem przewidującym - wybierz 3.")
         while type not in ["1", "2", "3"]:
