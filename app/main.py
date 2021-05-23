@@ -50,7 +50,7 @@ if __name__ == "__main__":
             print("Obecnie słowo to: ")
             print(Fore.RED + gameplay.get_word())
             print(Style.RESET_ALL)
-            if gameplay.check_end_game():
+            if gameplay.check_end_game() in [1, 2]:
                 break
             print("Twój ruch. Dopisz literę do słowa: ")
             letter = gameplay.get_real_player().choose_letter(alphabet)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
             print(Fore.RED + gameplay.get_word())
             print(Style.RESET_ALL)
             gameplay.set_current_round()
-            if gameplay.check_end_game():
+            if gameplay.check_end_game() in [1, 2]:
                 break
         run = input("Jeśli chcesz zagrać ponownie - wybierz 1 i zatwierdź. W przeciwnym wypadku aplikacja skończy działanie.")
 

@@ -58,14 +58,14 @@ class Gameplay:
     def check_end_game(self):
         """
 
-        :return: True if gra sie konczy else wpp
+        :return: 1 if Computer is Winner, 2 if real player is winner, False otherwise
         """
         if len(self.word) >= self.word_length:
             print("Koniec gry, wygrał gracz komputerowy!")
-            return True
+            return 1
         elif self.current_round > self.game_time:
             print("Wygrał gracz rzeczywisty, brawo!")
-            return True
+            return 2
         else:
             print("Nie ma zwycięzcy, gra toczy się dalej.")
             return False
