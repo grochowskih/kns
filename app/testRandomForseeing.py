@@ -10,8 +10,8 @@ if __name__ == "__main__":
         alphabet_length = 4
         alphabet = [chr(i) for i in range(97, 97 + alphabet_length)]
 
-        word_length = 8
-        game_time = 12
+        word_length = 30
+        game_time = 31
 
         type = "3"
         pseudo_real_player = RandomComputerPlayer()
@@ -40,4 +40,4 @@ if __name__ == "__main__":
                 results = results.append(df_to_add, ignore_index=True)
                 break
     results.head(10)
-    results.to_csv("Wyniki4-8-12.csv")
+    results.to_csv("Wyniki4-30-31.csv")
