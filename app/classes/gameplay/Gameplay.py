@@ -51,8 +51,8 @@ class Gameplay:
         :return: empty, ale jesli wystapila repetycja, to update'uje slowo
         """
         if is_repetition(self.word):
-            print("Wystąpiła repetycja!")
             begin = begin_repetition(self.word)
+            print("Wystąpiła repetycja! Powtórzenie to: " + str(self.word[begin:]) + str(self.word[begin:]))
             self.set_word(self.word[0:begin])
 
     def check_end_game(self):
