@@ -15,8 +15,12 @@ class ForeseeingPlayer(ComputerPlayer):
                 new_word = word+element
                 for letter in gameplay.alphabet:
                     is_non_repetitive = ComputerPlayer.check_for_long_repetition(new_word, letter)
-                    if is_non_repetitive:
-                        short_repetition.add(element)
+                    if not is_non_repetitive:
+                        break
+                    else:
+                        continue
+                if is_non_repetitive:
+                    short_repetition.add(element)
             if not short_repetition:
                 return ComputerPlayer.return_random(non_repetition)
             return ComputerPlayer.return_random(short_repetition)

@@ -7,11 +7,11 @@ if __name__ == "__main__":
     results = pd.DataFrame(columns=["alphabet_length", "word_length", "game_time", "winner"])
     for i in range(10):
         print("Start test app for i = " + str(i))
-        alphabet_length = 4
+        alphabet_length = 15
         alphabet = [chr(i) for i in range(97, 97 + alphabet_length)]
 
-        word_length = 30
-        game_time = 31
+        word_length = 35
+        game_time = 80
 
         type = "3"
         pseudo_real_player = RandomComputerPlayer()
@@ -40,4 +40,4 @@ if __name__ == "__main__":
                 results = results.append(df_to_add, ignore_index=True)
                 break
     results.head(10)
-    results.to_csv("Wyniki4-30-31.csv")
+    results.to_csv("Wyniki15-35-80.csv")
